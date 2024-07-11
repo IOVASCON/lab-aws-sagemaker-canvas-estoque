@@ -1,47 +1,60 @@
 # 📊 Previsão de Estoque Inteligente na AWS com [SageMaker Canvas](https://aws.amazon.com/pt/sagemaker/canvas/)
 
-Bem-vindo ao desafio de projeto "Previsão de Estoque Inteligente na AWS com SageMaker Canvas. Neste Lab DIO, você aprenderá a usar o SageMaker Canvas para criar previsões de estoque baseadas em Machine Learning (ML). Siga os passos abaixo para completar o desafio!
+## Objetivo
+O objetivo deste projeto é utilizar o Amazon SageMaker Canvas para construir e treinar um modelo de Machine Learning que preveja a quantidade de estoque promocional de produtos.
 
-## 📋 Pré-requisitos
-
-Antes de começar, certifique-se de ter uma conta na AWS. Se precisar de ajuda para criar sua conta, confira nosso repositório [AWS Cloud Quickstart](https://github.com/digitalinnovationone/aws-cloud-quickstart).
-
-
-## 🎯 Objetivos Deste Desafio de Projeto (Lab)
-
-![image](https://github.com/digitalinnovationone/lab-aws-sagemaker-canvas-estoque/assets/730492/72f5c21f-5562-491e-aa42-2885a3184650)
-
-- Dê um fork neste projeto e reescreva este `README.md`. Sinta-se à vontade para detalhar todo o processo de criação do seu Modelo de ML para uma "Previsão de Estoque Inteligente".
-- Para isso, siga o [passo a passo] descrito a seguir e evolua as suas habilidades em ML no-code com o Amazon SageMaker Canvas.
-- Ao concluir, envie a URL do seu repositório com a solução na plataforma da DIO.
-
-
-## 🚀 Passo a Passo
+## Passo a Passo
 
 ### 1. Selecionar Dataset
 
--   Navegue até a pasta `datasets` deste repositório. Esta pasta contém os datasets que você poderá escolher para treinar e testar seu modelo de ML. Sinta-se à vontade para gerar/enriquecer seus próprios datasets, quanto mais você se engajar, mais relevante esse projeto será em seu portfólio.
--   Escolha o dataset que você usará para treinar seu modelo de previsão de estoque.
--   Faça o upload do dataset no SageMaker Canvas.
+**Seleção do Dataset:**
 
-### 2. Construir/Treinar
+- O dataset "PrevisaoPromocional" foi selecionado, contendo 1.000 linhas de registros.
+- Este dataset inclui as seguintes colunas: `QUANTIDADE_ESTOQUE`, `PRECO`, `ID_PRODUTO`, `FLAG_PROMOCAO`, `DATA_EVENTO`.
 
--   No SageMaker Canvas, importe o dataset que você selecionou.
--   Configure as variáveis de entrada e saída de acordo com os dados.
--   Inicie o treinamento do modelo. Isso pode levar algum tempo, dependendo do tamanho do dataset.
+**Upload do Dataset:**
+
+- O dataset foi carregado no SageMaker Canvas na aba "Datasets".
+
+### 2. Construir e Treinar
+
+**Importação do Dataset:**
+
+- Dentro do SageMaker Canvas, o dataset "PrevisaoPromocional" foi importado com sucesso.
+
+**Configuração das Variáveis:**
+
+- **Variável de Saída:** `QUANTIDADE_ESTOQUE` (target column).
+- **Variáveis de Entrada:** `PRECO`, `ID_PRODUTO`, `FLAG_PROMOCAO`, `DATA_EVENTO`.
+
+**Início do Treinamento do Modelo:**
+
+- O modelo "VendasProdutosPromocionais" foi configurado para prever a quantidade de estoque usando uma abordagem de previsão de séries temporais.
+- Configuração de série temporal especificada para 2 dias.
+- Um treinamento rápido (Quick Build) foi realizado inicialmente para uma análise preliminar.
 
 ### 3. Analisar
 
--   Após o treinamento, examine as métricas de performance do modelo.
--   Verifique as principais características que influenciam as previsões.
--   Faça ajustes no modelo se necessário e re-treine até obter um desempenho satisfatório.
+**Métricas de Performance:**
+- Após o treinamento rápido, o modelo forneceu várias métricas de performance, como precisão, recall e F1-score.
+- As principais características que influenciam as previsões foram identificadas e analisadas.
+
+**Ajustes no Modelo:**
+- Se necessário, ajustes nas variáveis de entrada ou outros parâmetros do modelo foram realizados.
+- O modelo foi re-treinado até alcançar um desempenho satisfatório.
 
 ### 4. Prever
 
--   Use o modelo treinado para fazer previsões de estoque.
--   Exporte os resultados e analise as previsões geradas.
--   Documente suas conclusões e qualquer insight obtido a partir das previsões.
+**Geração de Previsões:**
 
-## 🤔 Dúvidas?
+- Utilizando o modelo treinado "VendasProdutosPromocionais", foram feitas previsões de estoque.
+- Novos datasets foram carregados para gerar as previsões.
 
-Esperamos que esta experiência tenha sido enriquecedora e que você tenha aprendido mais sobre Machine Learning aplicado a problemas reais. Se tiver alguma dúvida, não hesite em abrir uma issue neste repositório ou entrar em contato com a equipe da DIO.
+**Exportação e Análise dos Resultados:**
+
+- As previsões foram exportadas para um arquivo CSV.
+- As previsões geradas foram analisadas, gerando insights sobre a quantidade de estoque promocional prevista para os próximos dias.
+
+## Conclusões
+
+O modelo de previsão forneceu insights valiosos sobre a quantidade de estoque necessária para produtos em promoção. As métricas de performance indicaram um bom desempenho do modelo após ajustes e re-treinamento.
